@@ -11,29 +11,28 @@ import javax.persistence.Table;
 @Table(name = "right", schema = "public")
 public class Right  {
 
-	private int id;
+	private long id;
 	private String name;
 
 	public Right() {
 	}
 
-	public Right(int id) {
+	public Right(long id) {
 		this.id = id;
 	}
 
 	public Right(String name) {
-		this.id = id;
 		this.name = name;
 	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)
-	public int getId() {
+	public long getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

@@ -1,10 +1,17 @@
 package com.compsys.repository;
 
-import com.compsys.model.Rightsgroup;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.compsys.model.RightsGroup;
+import org.springframework.data.repository.Repository;
 
-public interface RightsGroupRepository extends JpaRepository<Rightsgroup, Long> {
+import java.util.List;
+import java.util.Optional;
 
-	Rightsgroup save(Rightsgroup sale);
+public interface RightsGroupRepository extends Repository<RightsGroup, Long> {
+
+	RightsGroup save(RightsGroup sale);
+
+	List<RightsGroup> findAll();
+
+	Optional<RightsGroup> findOne(Long id);
 
 }

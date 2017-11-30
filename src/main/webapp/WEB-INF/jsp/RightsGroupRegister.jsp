@@ -5,7 +5,7 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css"
-          href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+          href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
 
     <!--
 	<spring:url value="/css/main.css" var="springCss" />
@@ -19,9 +19,9 @@
 
 <div class="container">
     <div class="row col-sm-8">
-        <form class="form-horizontal" method="post" action="RightsGroupRegister">
+        <form class="form-horizontal" method="post" action="rights-group">
             <div class="form-group">
-                <label for="Name of group" class="col-sm-2 control-label">Name of group:</label>
+                <label for="name" class="col-sm-2 control-label">Name of group:</label>
                 <div class="col-sm-10">
                     <input class="form-control" id="name" name="name" placeholder="Name of group">
                 </div>

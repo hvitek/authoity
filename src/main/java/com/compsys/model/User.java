@@ -14,8 +14,8 @@ import javax.persistence.Table;
 @Table(name = "user", schema = "public")
 public class User {
 
-	private int id;
-	private Rightsgroup rightsgroup;
+	private long id;
+	private RightsGroup rightsGroup;
 	private String firstname;
 	private String lastname;
 	private String nickname;
@@ -25,14 +25,12 @@ public class User {
 	}
 
 	public User(String firstname, String lastname, String nickname) {
-		this.id = id;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.nickname = nickname;
 	}
 
 	public User(String firstname, String lastname, String nickname, Boolean isactive) {
-		this.id = id;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.nickname = nickname;
@@ -42,22 +40,22 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)
-	public int getId() {
+	public long getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "rightsgroup_id")
-	public Rightsgroup getRightsgroup() {
-		return this.rightsgroup;
+	public RightsGroup getRightsGroup() {
+		return this.rightsGroup;
 	}
 
-	public void setRightsgroup(Rightsgroup rightsgroup) {
-		this.rightsgroup = rightsgroup;
+	public void setRightsGroup(RightsGroup rightsGroup) {
+		this.rightsGroup = rightsGroup;
 	}
 
 	@Column(name = "firstname", nullable = false, length = 40)

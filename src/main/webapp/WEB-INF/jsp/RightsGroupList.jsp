@@ -6,7 +6,7 @@
 <head>
 
     <link rel="stylesheet" type="text/css"
-          href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+          href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
 
     <!--
 	<spring:url value="/css/main.css" var="springCss" />
@@ -36,17 +36,9 @@
                     <td><c:out value="${rightsgroup.getRightsAsString()}"/></td>
                 </tr>
             </c:forEach>
-            
-            </tbody>
+
         </table>
-        
-        <select >		
-              
-			            <c:forEach items="${RightsGroupList}" var="rightsgroup">
-			            
-			                <option value="${rightsgroup.getId()}">${rightsgroup.getName()}</option>  
-			            </c:forEach>
-					</select>
+
     </div>
 </div>
 
