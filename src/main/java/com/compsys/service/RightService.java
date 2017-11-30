@@ -3,6 +3,7 @@ package com.compsys.service;
 import com.compsys.model.Right;
 
 import java.util.List;
+import java.util.Map;
 
 public interface RightService {
 
@@ -10,4 +11,5 @@ public interface RightService {
 
     List<Right> getList();
 
+    Map<Long, String> getAllAsMap();
 }

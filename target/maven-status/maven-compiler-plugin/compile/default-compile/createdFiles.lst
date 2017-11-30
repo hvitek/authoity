@@ -1,8 +1,0 @@
-com/compsys/model/Attendanceactions.class
-com/compsys/model/User.class
-com/compsys/model/Rightsgroup.class
-com/compsys/AuthorityApplication.class
-com/compsys/model/Rights.class
-com/compsys/controller/RegisterController.class
-com/compsys/controller/RegisterForm.class
-com/compsys/repository/UserRepository.class

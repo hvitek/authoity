@@ -6,7 +6,7 @@
 <head>
 
     <link rel="stylesheet" type="text/css"
-          href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+          href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
 
     <!--
 	<spring:url value="/css/main.css" var="springCss" />
@@ -35,15 +35,13 @@
             <c:forEach items="${UserList}" var="user">
                 <tr>
                     <td><c:out value="${user.getId()}"/></td>
-                    <td><c:out value="${user.getRightsgroup()}"/></td>
+                    <td><c:out value="${user.getRightsGroup()}"/></td>
                     <td><c:out value="${user.getFirstname()}"/></td>
                     <td><c:out value="${user.getLastname()}"/></td>
                     <td><c:out value="${user.getNickname()}"/></td>
-                   	<td><c:out value="${user.getIsactive()}"/></td>
+                    <td><c:out value="${user.getIsactive()}"/></td>
                 </tr>
             </c:forEach>
-
-            </tbody>
         </table>
     </div>
 </div>

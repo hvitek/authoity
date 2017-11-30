@@ -11,19 +11,14 @@ import javax.persistence.Table;
 @Table(name = "mainmenu", schema = "public")
 public class MainMenu  {
 
-	private int id;
+	private long id;
 	private String name;
 	private String adress;
 
 	public MainMenu() {
 	}
 
-	public MainMenu(int id) {
-		this.id = id;
-	}
-
 	public MainMenu(String name, String adress) {
-		this.id = id;
 		this.name = name;
 		this.adress = adress;
 	}
@@ -31,11 +26,12 @@ public class MainMenu  {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)
-	public int getId() {
+	public long getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+
+	public void setId(long id) {
 		this.id = id;
 	}
 

@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class RightServiceImpl implements RightService {
@@ -22,7 +24,6 @@ public class RightServiceImpl implements RightService {
         this.repository = repository;
     }
 
-
     @Override
     public Right save(Right right) {
         Right created = repository.save(right);
@@ -32,5 +33,11 @@ public class RightServiceImpl implements RightService {
     @Override
     public List<Right> getList() {
         return repository.findAll();
+    }
+
+    @Override
+    public Map<Long, String> getAllAsMap() {
+        return repository.findAll().stream().collect(
+                Collectors.toMap(Right::getId, Right::getName));
     }
 }
