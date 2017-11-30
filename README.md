@@ -1,1 +1,1 @@
-# authoity
+# authority
