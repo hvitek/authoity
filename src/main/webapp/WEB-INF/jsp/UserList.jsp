@@ -6,7 +6,7 @@
 <head>
 
     <link rel="stylesheet" type="text/css"
-          href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+          href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
 
     <!--
 	<spring:url value="/css/main.css" var="springCss" />
@@ -29,6 +29,7 @@
                 <th>Lastname</th>
                 <th>Nickname</th>
                 <th>Active</th>
+                <th>Password</th>
             </tr>
             </thead>
 
@@ -40,6 +41,7 @@
                     <td><c:out value="${user.getLastname()}"/></td>
                     <td><c:out value="${user.getNickname()}"/></td>
                     <td><c:out value="${user.getIsactive()}"/></td>
+                    <td><c:out value="${user.getPassword()}"/></td>
                 </tr>
             </c:forEach>
         </table>

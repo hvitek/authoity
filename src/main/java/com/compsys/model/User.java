@@ -19,6 +19,7 @@ public class User {
 	private String firstname;
 	private String lastname;
 	private String nickname;
+	private String password;
 	private Boolean isactive;
 
 	public User() {
@@ -30,11 +31,12 @@ public class User {
 		this.nickname = nickname;
 	}
 
-	public User(String firstname, String lastname, String nickname, Boolean isactive) {
+	public User(String firstname, String lastname, String nickname, Boolean isactive, String password) {
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.nickname = nickname;
 		this.isactive = isactive;
+		this.password = password;
 	}
 
 	@Id
@@ -92,6 +94,14 @@ public class User {
 
 	public void setIsactive(Boolean isactive) {
 		this.isactive = isactive;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 }

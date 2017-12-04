@@ -12,7 +12,7 @@ import javax.persistence.Table;
 public class AttendanceAction {
 
 	//rows_determiner
-	private int id;
+	private long id;
 	private String name;
 	private Boolean isincoming;
 	private Boolean isoutcoming;
@@ -21,12 +21,18 @@ public class AttendanceAction {
 	public AttendanceAction() {
 	}
 
-	public AttendanceAction(int id, String name) {
+	public AttendanceAction(long id, String name) {
 		this.id = id;
 		this.name = name;
 	}
 
-	public AttendanceAction(int id, String name, Boolean isincoming, Boolean isoutcoming) {
+	public AttendanceAction(String name,  Boolean isincoming, Boolean isoutcoming) {
+		this.name = name;
+		this.isincoming = isincoming;
+		this.isoutcoming = isoutcoming;
+	}
+	
+	public AttendanceAction(long id, String name, Boolean isincoming, Boolean isoutcoming) {
 		this.id = id;
 		this.name = name;
 		this.isincoming = isincoming;
@@ -36,11 +42,11 @@ public class AttendanceAction {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)
-	public int getId() {
+	public long getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

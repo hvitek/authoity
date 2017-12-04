@@ -7,6 +7,8 @@ public class RegisterForm {
     private String lastName;
 
     private String nickName;
+    
+    private String password;
 
     private boolean isActive;
 
@@ -14,6 +16,15 @@ public class RegisterForm {
 
     private String rightgroup;
 
+    
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    
 
     public String getFirstName() {
         return firstName;

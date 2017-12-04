@@ -7,7 +7,7 @@
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css"
-          href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+          href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
 
     <!--
 	<spring:url value="/css/main.css" var="springCss" />
@@ -46,6 +46,15 @@
     <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+        
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">AttendanceAction<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="attendanceActionController" target="centerContent">Register</a></li>
+            <li><a href="attendanceActionController/list" target="centerContent">List</a></li>
+          </ul>
+        </li>
+        
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User<span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -63,8 +72,8 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">RightsGroup<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="rights-group" target="centerContent">Register</a></li>
-            <li><a href="rights-group/list" target="centerContent">List</a></li>
+            <li><a href="rightsGroupController" target="centerContent">Register</a></li>
+            <li><a href="rightsGroupController/list" target="centerContent">List</a></li>
           </ul>
         </li>
       </ul>
@@ -74,7 +83,7 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-       <iframe src="" name="centerContent" height="400" width="100%" frameborder="0"></iframe>
+       <iframe onload="document.title=this.contentWindow.document.title" src="" name="centerContent" height="400" width="100%" frameborder="0"></iframe>
 </body>
 
 </html>

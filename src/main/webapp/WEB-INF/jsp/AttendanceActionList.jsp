@@ -4,7 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-	<title>Authoryty - RightsGroup</title>
+
     <link rel="stylesheet" type="text/css"
           href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
 
@@ -16,29 +16,31 @@
     <link href="${jstlCss}" rel="stylesheet"/>
 
 </head>
+
 <body>
 <div class="container">
     <div class="row col-sm-8">
         <table class="table table-condensed">
             <thead>
             <tr>
-            	<th width="50">Id</th>
+                <th>Id</th>
                 <th>Name</th>
-                <th>Rights</th>
+                <th>IsIncomming</th>
+                <th>IsOutcomming</th>
             </tr>
             </thead>
 
-			
-            <c:forEach items="${RightsGroupList}" var="rightsgroup">
+            <c:forEach items="${AttendanceActionList}" var="attendanceAction">
                 <tr>
-                	<td><c:out value="${rightsgroup.getId()}"/></td>
-                    <td><c:out value="${rightsgroup.getName()}"/></td>
-                    <td><c:out value="${rightsgroup.getRightsAsString()}"/></td>
+                    <td><c:out value="${attendanceAction.getId()}"/></td>
+                    <td><c:out value="${attendanceAction.getName()}"/></td>
+                    <td><c:out value="${attendanceAction.getIsincoming()}"/></td>
+                    <td><c:out value="${attendanceAction.getIsoutcoming()}"/></td>
                 </tr>
             </c:forEach>
 
+            </tbody>
         </table>
-
     </div>
 </div>
 

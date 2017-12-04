@@ -8,7 +8,7 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css"
-          href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+          href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
 
     <!--
 	<spring:url value="/css/main.css" var="springCss" />
@@ -23,21 +23,28 @@
     <div class="row col-sm-8">
         <form:form  modelAttribute="register-form" action="users" method="post" >
             <div class="form-group">
-                <label for="firstName" class="col-sm-2 control-label">Jméno:</label>
+                <label for="firstName" class="col-sm-2 control-label">First Name:</label>
                 <div class="col-sm-10">
                     <input class="form-control" id="firstName" name="firstName" placeholder="Jméno">
                 </div>
             </div>
             <div class="form-group">
-                <label for="lastName" class="col-sm-2 control-label">Příjmení:</label>
+                <label for="lastName" class="col-sm-2 control-label">Last name:</label>
                 <div class="col-sm-10">
                     <input class="form-control" id="lastName" name="lastName" placeholder="Příjmení">
                 </div>
             </div>
             <div class="form-group">
-                <label for="nickName" class="col-sm-2 control-label">Přezdívka:</label>
+                <label for="nickName" class="col-sm-2 control-label">Nickname:</label>
                 <div class="col-sm-10">
-                    <input class="form-control" id="nickName" name="nickName" placeholder="Nick">
+                    <input class="form-control" id="nickName" name="nickName" placeholder="Nickname">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="password" class="col-sm-2 control-label">Password:</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                 </div>
             </div>
 

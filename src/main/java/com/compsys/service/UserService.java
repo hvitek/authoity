@@ -9,5 +9,8 @@ public interface UserService {
     User save(User user);
 
     List<User> getList();
+    
+
+	User getUserByUsernamePassword(String username, String password);
 
 }

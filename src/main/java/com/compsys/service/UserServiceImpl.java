@@ -33,4 +33,13 @@ public class UserServiceImpl implements UserService {
     public List<User> getList() {
         return repository.findAll();
     }
+    
+    
+    @Override
+    public User getUserByUsernamePassword(String username, String password) {
+    	
+    	//return first User from list of Users
+    	User foundUser = repository.findByUsernameAndPassword(username, password).get(0);
+        return foundUser;
+    }
 }

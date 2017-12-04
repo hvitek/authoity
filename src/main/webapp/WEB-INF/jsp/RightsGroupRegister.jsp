@@ -5,7 +5,7 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css"
-          href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+          href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
 
     <!--
 	<spring:url value="/css/main.css" var="springCss" />
@@ -19,7 +19,7 @@
 
 <div class="container">
     <div class="row col-sm-8">
-        <form class="form-horizontal" method="post" action="rights-group">
+        <form class="form-horizontal" method="post" action="rightsGroupController">
             <div class="form-group">
                 <label for="name" class="col-sm-2 control-label">Name of group:</label>
                 <div class="col-sm-10">
@@ -34,7 +34,7 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button class="btn btn-default">Create</button>
+                    <button class="btn btn-default" onclick="checkform()">Create</button>
                 </div>
             </div>
         </form>

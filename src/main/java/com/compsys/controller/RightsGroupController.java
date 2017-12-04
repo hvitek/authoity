@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,7 +19,7 @@ import javax.inject.Inject;
 import java.util.List;
 
 @Controller
-@RequestMapping(value = "rights-group")
+@RequestMapping(value = "rightsGroupController")
 public class RightsGroupController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(RightsGroupController.class);
@@ -42,16 +43,16 @@ public class RightsGroupController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String createRightsGroup(@ModelAttribute("form") RightsGroupForm form ) {
-        LOGGER.debug("Received request to create {}, with result={}", form);
-
+    public String createRightsGroup(@ModelAttribute("form") RightsGroupForm form) {
+        LOGGER.debug("Received request to create {}, with result={}", form); 
+        
         try {
         	rightsGroupService.save(new RightsGroup(form.getName(),form.getRights()));
         } catch (RightsGroupAlreadyExistsException e) {
             LOGGER.debug("Tried to create rightsgroup with existing id", e);
             return "right_create";
         }
-        return "redirect:/rights-group/list";
+        return "redirect:/rightsGroupController/list";
     }
 
 

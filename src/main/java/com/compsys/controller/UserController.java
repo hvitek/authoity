@@ -2,7 +2,7 @@ package com.compsys.controller;
 
 import com.compsys.forms.RegisterForm;
 import com.compsys.exception.UserAlreadyExistsException;
-import com.compsys.forms.RightGroup;
+import com.compsys.forms.RightsGroupForm;
 import com.compsys.model.RightsGroup;
 import com.compsys.model.User;
 import com.compsys.service.RightsGroupService;
@@ -53,7 +53,7 @@ public class UserController {
 
         try {
             Optional<RightsGroup> rightGroup = rightsGroupService.getById(Long.valueOf(form.getRightgroup()));
-            User user = new User(form.getFirstName(), form.getLastName(), form.getNickName(), form.isActive());
+            User user = new User(form.getFirstName(), form.getLastName(), form.getNickName(), form.isActive(), form.getPassword());
 
             if(rightGroup.isPresent()){
                 user.setRightsGroup(rightGroup.get());
