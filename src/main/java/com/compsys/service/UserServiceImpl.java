@@ -36,10 +36,10 @@ public class UserServiceImpl implements UserService {
     
     
     @Override
-    public User getUserByUsernamePassword(String username, String password) {
+    public User getUserByNicknameAndPassword(String nickname, String password) {
     	
     	//return first User from list of Users
-    	User foundUser = repository.findByUsernameAndPassword(username, password).get(0);
-        return foundUser;
+    	User user = repository.findByNicknameAndPassword(nickname, password);
+        return user;
     }
 }

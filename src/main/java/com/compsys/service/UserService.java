@@ -10,7 +10,6 @@ public interface UserService {
 
     List<User> getList();
     
-
-	User getUserByUsernamePassword(String username, String password);
-
+    User getUserByNicknameAndPassword(String nickname, String password);
+	 
 }

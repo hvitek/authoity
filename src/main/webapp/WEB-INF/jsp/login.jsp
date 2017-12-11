@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
@@ -33,8 +34,8 @@
 				<div class="loginmodal-container">
 					<h1>Login to Your Account</h1><br>
 				  <form action="loginController" method="post">
-					<input type="text" name="user" placeholder="Username">
-					<input type="password" name="pass" placeholder="Password">
+					<input type="text" name=nickname placeholder="Username">
+					<input type="password" name="password" placeholder="Password">
 					<input type="submit" name="login" class="login loginmodal-submit" value="login">
 				  </form>
 					
