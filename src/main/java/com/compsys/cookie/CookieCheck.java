@@ -20,7 +20,7 @@ public class CookieCheck {
 			 String ActualCookieName = cookie.getName();
 			 String ActualCookieValue = cookie.getValue();
 			 
-		   if (Objects.equals(ActualCookieName, cookieName) && !Objects.equals(ActualCookieValue, "")) 
+		   if (Objects.equals(ActualCookieName, cookieName) && Objects.equals(ActualCookieValue, Cookies.CookieValue)) 
 		   {
 		     return true;
 		   }
@@ -38,8 +38,10 @@ public class CookieCheck {
 	{
 		//TODO udělat lépe
 		//create cookie
-		Cookie cookieAuthority = new Cookie(Cookies.CookieLogin, Long.toString(user.getId())); //bake cookie
+		String cookieValue = Long.toString(user.getId());
+		Cookie cookieAuthority = new Cookie(Cookies.CookieLogin, cookieValue); //bake cookie
 		cookieAuthority.setMaxAge(10000); //set expire time
+		Cookies.CookieValue = cookieValue;
 		return cookieAuthority;
 	}
 	
@@ -48,6 +50,7 @@ public class CookieCheck {
 	{
 		Cookie cookieAuthority = new Cookie(Cookies.CookieLogin, ""); //bake cookie
 		cookieAuthority.setMaxAge(0); //set expire time
+		Cookies.CookieValue = null;
 		return cookieAuthority;
 	}
 	

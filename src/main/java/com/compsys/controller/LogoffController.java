@@ -22,10 +22,9 @@ public class LogoffController {
 
 	    @RequestMapping(method = RequestMethod.GET)
 	    public String getCreateLoginView(HttpServletResponse response) {
-
 	        LOGGER.debug("Received request for logoff");
 	        response.addCookie(CookieCheck.deleteLoginCookie());
-	        return "/main";
+	        return "/login";
 	    }
 	    
 	 

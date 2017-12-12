@@ -1,6 +1,10 @@
 package com.compsys.controller;
 
+import com.compsys.forms.LoginForm;
 import com.compsys.forms.RegisterForm;
+import com.compsys.forms.RightForm;
+import com.compsys.cookie.CookieCheck;
+import com.compsys.cookie.Cookies;
 import com.compsys.exception.UserAlreadyExistsException;
 import com.compsys.forms.RightsGroupForm;
 import com.compsys.model.RightsGroup;
@@ -18,6 +22,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+
 import java.util.Optional;
 
 @Controller
@@ -37,13 +43,27 @@ public class UserController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView getCreateUserView() {
-        LOGGER.debug("Received request for register");
-        ModelAndView model = new ModelAndView("UserRegister", "register-form", new RegisterForm());
-        model.addObject("rightsgroup", rightsGroupService.getAllAsMap());
-        model.addObject("rightgroup", new RightsGroup());
-        model.addObject("users",userService.getList());
-        return model;
+    public ModelAndView getCreateUserView(HttpServletRequest request) {
+    	
+    	if(CookieCheck.checkIfExistsCookie(request, Cookies.CookieLogin))
+		{
+    		LOGGER.debug("Received request for register");
+            ModelAndView model = new ModelAndView("UserRegister", "register-form", new RegisterForm());
+            model.addObject("rightsgroup", rightsGroupService.getAllAsMap());
+            model.addObject("rightgroup", new RightsGroup());
+            model.addObject("users",userService.getList());
+            return model;
+		}
+	else 
+		{
+			LOGGER.debug("Not logged");
+			return new ModelAndView("login", "form", new LoginForm());
+		}
+    	
+    	
+    	
+    	
+        
     }
   
 

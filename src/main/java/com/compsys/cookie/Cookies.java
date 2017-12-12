@@ -10,7 +10,7 @@ public class Cookies {
 	public static ArrayList<String> list = new ArrayList<String>();
 	public static final String CookieLogin = "AuthorytyLogin";
 	public static final String CookieSettings = "AuthorytySetting";
-	
+	public static String CookieValue = null;
 	static  
 	{
 		list.add(CookieLogin);

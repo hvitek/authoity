@@ -1,6 +1,10 @@
 package com.compsys.controller;
 
+import com.compsys.cookie.CookieCheck;
+import com.compsys.cookie.Cookies;
 import com.compsys.exception.RightsGroupAlreadyExistsException;
+import com.compsys.forms.LoginForm;
+import com.compsys.forms.RightForm;
 import com.compsys.forms.RightsGroupForm;
 import com.compsys.model.RightsGroup;
 import com.compsys.service.RightService;
@@ -16,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+
 import java.util.List;
 
 @Controller
@@ -35,11 +41,24 @@ public class RightsGroupController {
     }
 
     @RequestMapping( method = RequestMethod.GET)
-    public ModelAndView getRightsGroupView() {
-        LOGGER.debug("Received request for addRight");
-        ModelAndView model = new ModelAndView("RightsGroupRegister", "form", new RightsGroupForm());
-        model.addObject("rights",rightService.getAllAsMap());
-        return model;
+    public ModelAndView getRightsGroupView(HttpServletRequest request) {
+    	
+    	if(CookieCheck.checkIfExistsCookie(request, Cookies.CookieLogin))
+		{
+
+            LOGGER.debug("Received request for addRight");
+            ModelAndView model = new ModelAndView("RightsGroupRegister", "form", new RightsGroupForm());
+            model.addObject("rights",rightService.getAllAsMap());
+            return model;
+		}
+	else 
+		{
+			LOGGER.debug("Not logged");
+			return new ModelAndView("login", "form", new LoginForm());
+		}
+    	
+    	
+    	
     }
 
     @RequestMapping(method = RequestMethod.POST)

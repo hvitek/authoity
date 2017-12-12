@@ -1,8 +1,13 @@
 package com.compsys.controller;
 
 import com.compsys.forms.AttendanceActionForm;
+import com.compsys.forms.LoginForm;
+import com.compsys.forms.RegisterForm;
+import com.compsys.cookie.CookieCheck;
+import com.compsys.cookie.Cookies;
 import com.compsys.exception.AttendanceActionAlreadyExistsException;
 import com.compsys.model.AttendanceAction;
+import com.compsys.model.RightsGroup;
 import com.compsys.service.AttendanceActionService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 @RequestMapping(value = "attendanceActionController")
@@ -29,10 +35,23 @@ public class AttendanceActionController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView getCreateAttendanceActionView() {
+    public ModelAndView getCreateAttendanceActionView(HttpServletRequest request) {
 
-        LOGGER.debug("Received request for addAttendandeActinon");
-        return new ModelAndView("AttendanceActionRegister", "form", new AttendanceActionForm());
+    	
+    	
+    	if(CookieCheck.checkIfExistsCookie(request, Cookies.CookieLogin))
+		{
+
+            LOGGER.debug("Received request for addAttendandeActinon");
+            return new ModelAndView("AttendanceActionRegister", "form", new AttendanceActionForm());
+		}
+	else 
+		{
+			LOGGER.debug("Not logged");
+			return new ModelAndView("login", "form", new LoginForm());
+		}
+    	
+    	
     }
 
 

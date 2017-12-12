@@ -1,6 +1,9 @@
 package com.compsys.controller;
 
+import com.compsys.forms.LoginForm;
 import com.compsys.forms.RightForm;
+import com.compsys.cookie.CookieCheck;
+import com.compsys.cookie.Cookies;
 import com.compsys.exception.RightAlreadyExistsException;
 import com.compsys.model.Right;
 import com.compsys.service.RightService;
@@ -14,10 +17,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 @RequestMapping(value = "rights")
-public class RightsController {
+public class RightsController{
 
     private static final Logger LOGGER = LoggerFactory.getLogger(RightsController.class);
 
@@ -29,10 +33,19 @@ public class RightsController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView getCreateUserView() {
-
-        LOGGER.debug("Received request for addRight");
-        return new ModelAndView("RightRegister", "form", new RightForm());
+    public ModelAndView getCreateUserView( HttpServletRequest request ) {
+    	
+    	if(CookieCheck.checkIfExistsCookie(request, Cookies.CookieLogin))
+    		{
+	    		LOGGER.debug("Received request for addRight");
+	        	return new ModelAndView("RightRegister", "form", new RightForm());
+    		}
+    	else 
+    		{
+    			LOGGER.debug("Not logged");
+    			return new ModelAndView("login", "form", new LoginForm());
+    		}
+       
     }
 
 
